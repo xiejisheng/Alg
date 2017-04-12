@@ -4,9 +4,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
+import com.google.common.base.Stopwatch;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 
@@ -29,10 +32,11 @@ public class DictCompose {
 		List<int[]> result = Lists.newArrayList();
 		int[] f = initFirstRank();
 		result.add(f);
-		// 如何知道还有剩余的排列
-		int[] c;
-		for ( ; result.size() < rankSize; ) {
-			c = result.get(result.size()-1);
+		// 如何知道还有剩余的排列 [排列为单调递减， 没有逆序对]
+		// 如何证明单调递减的排列数据最大
+//		for ( ; result.size() < rankSize; ) {
+		for ( ; existReverse(result.get(result.size()-1)); ) {
+			int[] c = result.get(result.size()-1);
 			int[] d = deepcopy(c);
 			int maxi = findMaxAscIndexFormRightToLeft(d);
 			int minj =  findGTMaxiMinIndex(maxi, d);
@@ -41,6 +45,14 @@ public class DictCompose {
 			result.add(d);
 		}
 		return result;
+	}
+
+	private boolean existReverse(int[] c) {
+		for (int i = 0; i < n-1; i++) {
+			if (c[i] < c[i+1]) 
+				return true;
+		}
+		return false;
 	}
 
 	private void sortAsc(int i, int[] d) {
@@ -112,9 +124,12 @@ public class DictCompose {
 	}
 	
 	public static void main(String[] args) {
-		List<int[]> dictComposes = new DictCompose(4).dictCompose();
+		Stopwatch stopwatch = Stopwatch.createStarted();
+		List<int[]> dictComposes = new DictCompose(6).dictCompose();
 		for (int[] each : dictComposes) {
-			System.out.println(ToStringBuilder.reflectionToString(each));
+			System.out.println(ToStringBuilder.reflectionToString(each, ToStringStyle.SIMPLE_STYLE));
 		}
+		System.err.println(dictComposes.size());
+		System.out.println(stopwatch.elapsed(TimeUnit.MILLISECONDS));
 	}
 }

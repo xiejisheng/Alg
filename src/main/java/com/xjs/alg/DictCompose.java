@@ -93,7 +93,7 @@ public class DictCompose {
 			public int compare(Map<Integer, Integer> o1, Map<Integer, Integer> o2) {
 				return o1.keySet().iterator().next() - o2.keySet().iterator().next();
 			}
-		});;
+		});
 		int minj = 0;
 		for (Map<Integer, Integer> each : rest) {
 			if (c[maxi] < each.keySet().iterator().next()) {

@@ -1,42 +1,39 @@
 package com.xjs.alg;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
-
-import com.google.common.base.Function;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
 
 /**
  * 二进制反射格雷码
+ * 
  * @author xjs
  *
  */
 public class BRGC {
 	private int N;
+
 	public BRGC(int n) {
 		this.N = n;
 	}
-	
+
 	public List<String> brgc() {
 		return brgc(N);
 	}
+
 	private List<String> brgc(int n) {
 		if (n == 1) {
 			List<String> l0 = Lists.newArrayList();
 			l0.add("0");
 			l0.add("1");
 			return l0;
-		}
-		else {
-			List<String> l1 = brgc(n-1);
+		} else {
+			List<String> l1 = brgc(n - 1);
 			List<String> l2 = Lists.newArrayList();
-			
+
 			for (int i = 0; i < l1.size(); i++) {
 				l2.add(l1.get(i));
 				l1.set(i, Joiner.on("").join("0", l1.get(i)));
@@ -57,7 +54,7 @@ public class BRGC {
 			return l;
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		List<String> brgc = new BRGC(4).brgc();
 		for (String each : brgc) {

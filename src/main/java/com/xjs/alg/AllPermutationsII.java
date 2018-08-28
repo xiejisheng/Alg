@@ -17,8 +17,18 @@ public class AllPermutationsII {
 		// Terminate
 		if(index == arr.length - 1){
 			result.add(new String(arr));
+			System.out.println(result);
 			return;
 		}
+		/**
+		    			abc
+		   			/
+		  	a(bc)
+		  /      \
+		ab(c)    ac(b)
+		 |		  |
+		abc		 acb
+		 */
 		// Recursion Rule <0,1,2>
 		for(int i = index; i < arr.length; i++){
 			swap(arr, index, i);

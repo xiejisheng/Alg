@@ -2,7 +2,7 @@ package com.xjs.alg;
 
 public class ReOrderArray {
 	public static void main(String[] args) {
-		String str = "1234567ABCDEFG";
+		String str = "12345";
 		// String str = "1234567";
 		char[] arr = str.toCharArray();
 		if (str.length() % 2 == 0) {

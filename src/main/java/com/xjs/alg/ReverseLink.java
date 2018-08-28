@@ -3,12 +3,12 @@ package com.xjs.alg;
 public class ReverseLink {
 	public static void main(String[] args) {
 		Node node6 = new Node(null, 6);
-		Node node5 = new Node(null, 5);
+		Node node5 = new Node(node6, 5);
 		Node node4 = new Node(node5, 4);
 		Node node3 = new Node(node4, 3);
 		Node node2 = new Node(node3, 2);
 		Node node1 = new Node(node2, 1);
-		Node newHead = reversePair(node1);
+		Node newHead = reversePair2(node1);
 		Node curr = newHead;
 		while(curr != null) {
 			System.out.println(curr.val);

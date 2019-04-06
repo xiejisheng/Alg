@@ -5,7 +5,9 @@ import java.util.Map;
 
 public class ShortestPalindrome {
 	public static void main(String[] args) {
-		String str = "cccacabc"; // "dcbaabcd"
+		String str = "abab"; // "dcbaabcd"
+		System.out.println(str.substring(0, 0));
+		System.out.println(str.substring(str.length()));
 		String shortestPalindrome = shortestPalindrome(str);
 		System.out.println(shortestPalindrome);
 		Map<Integer, Integer> result = new HashMap<>();

@@ -8,7 +8,7 @@ public class ReverseLink {
 		Node node3 = new Node(node4, 3);
 		Node node2 = new Node(node3, 2);
 		Node node1 = new Node(node2, 1);
-		Node newHead = reversePair2(node1);
+		Node newHead = reverse1(node1);
 		Node curr = newHead;
 		while(curr != null) {
 			System.out.println(curr.val);

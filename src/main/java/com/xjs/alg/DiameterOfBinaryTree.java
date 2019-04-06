@@ -1,11 +1,7 @@
 package com.xjs.alg;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class DiameterOfBinaryTree {
 	
-	static Map<TreeNode, Integer> nodeOfDepathMap = new HashMap<>();
 	/**
 	      1
          / \

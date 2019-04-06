@@ -1,23 +1,24 @@
 package com.xjs.alg;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.HashSet;
 import java.util.List;
 
 public class AllPermutationsII {
 	public static void main(String[] args) {
 		int index = 0;
-		char[] arr = "abc".toCharArray();
-		List<String> result = new ArrayList<>();
+		char[] arr = "123".toCharArray();
+		Deque<String> result = new ArrayDeque<>();
 		dfs(index, arr, result);
-		System.out.println(new HashSet<>(result));
+		System.out.println(result);
 	}
 	
-	public static void dfs(int index, char[] arr, List<String> result){
+	public static void dfs(int index, char[] arr, Deque<String> result){
 		// Terminate
 		if(index == arr.length - 1){
 			result.add(new String(arr));
-			System.out.println(result);
 			return;
 		}
 		/**

@@ -1,5 +1,9 @@
 package com.xjs.alg;
 
+/**
+ *  很有意思的算法
+ *  分析链表的本质和扩展思维
+ */
 public class IntersectionNode {
 	public static void main(String[] args) {
 		Node c3 = new Node(null, 9);

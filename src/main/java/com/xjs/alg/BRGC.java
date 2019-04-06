@@ -3,6 +3,9 @@ package com.xjs.alg;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
@@ -60,5 +63,13 @@ public class BRGC {
 		for (String each : brgc) {
 			System.out.println(each);
 		}
+		Queue<Map.Entry<String, Integer>> q = new PriorityQueue<>(new Comparator<Map.Entry<String, Integer>>() {
+
+		      @Override
+		      public int compare(Map.Entry<String, Integer> o1,
+		          Map.Entry<String, Integer> o2) {
+		        return o1.getValue() - o2.getValue();
+		      }
+		    });
 	}
 }

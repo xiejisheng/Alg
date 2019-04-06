@@ -13,13 +13,11 @@ public class RemoveAdjacentRepeatedCharacters {
 		for (int i = 0; i < arr.length; i++) {
 			if (j == -1 || arr[j] != arr[i]) {
 				arr[++j] = arr[i];
-				System.out.println(new String(arr));
 			} else {
 				j--;
 				while(i + 1 < arr.length && arr[i] == arr[i + 1]){
 					i++;
 				}
-				System.out.println(new String(arr));
 			}
 		}
 		return new String(arr, 0, j+1);

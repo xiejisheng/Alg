@@ -13,11 +13,16 @@ public class FewestConis {
 	public static void main(String[] args) {
 		int amount = 4;
 	    Set<Integer> set = new HashSet<Integer>(Arrays.asList(1, 2, 5));
-
 		int fewestCoins = fewestCoins1(set, amount);
 		System.out.println(fewestCoins);
 	}
 
+	/**
+	 * error
+	 * @param arr
+	 * @param amount
+	 * @return
+	 */
 	@Deprecated
 	private static int fewestCoins(Set<Integer> arr, int amount) {
 		int M[] = new int[amount + 1];
@@ -34,6 +39,8 @@ public class FewestConis {
 		}
 		return M[amount];
 	}
+
+
 	private static int fewestCoins1(Set<Integer> coins, int amount) {
 		int[] M = new int[amount + 1];
 		Arrays.fill(M, -1);

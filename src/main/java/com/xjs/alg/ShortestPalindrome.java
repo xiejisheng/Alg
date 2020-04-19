@@ -55,4 +55,14 @@ public class ShortestPalindrome {
 			result.put(i, t);
 		}
 	}
+	static void kmp(char[] b, int[] result) {
+		for (int i = 1; i < b.length; i++) {
+			int t = result[i - 1];
+			while (t > 0 && b[i] != b[t])
+				t = result[t - 1];
+			if (b[i] == b[t])
+				++t;
+			result[i] = t;
+		}
+	}
 }

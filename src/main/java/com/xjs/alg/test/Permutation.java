@@ -6,7 +6,7 @@ import avro.shaded.com.google.common.collect.Lists;
 
 public class Permutation {
 	public static void main(String[] args) {
-		String input = "123";
+		String input = "()()()";
 		char[] arr = input.toCharArray();
 		List<String> res = Lists.newArrayList();
 		int index = 0;

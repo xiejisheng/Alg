@@ -21,10 +21,9 @@ public class LongestSubstringWithoutRepeatingCharacters {
 					max = set.size();
 				}
 				while (arr[i] != arr[j]) {
-					set.remove(arr[i]);
-					i++;
+					set.remove(arr[i++]);
 				}
-				set.remove(arr[i]);
+				set.remove(arr[i++]);
 			} else {
 				set.add(arr[j]);
 			}
